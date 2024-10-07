@@ -1,17 +1,14 @@
 import checkHealth from '../src/health'
 
-test('checkHealth', () => { 
-    expect(checkHealth({name: 'Маг', health: 90})).toBe('healthy'); 
-});
+const heroes = [
+    ['мечник', 10, 'critical'],
+    ['маг', 100, 'healthy'],
+    ['лучник', 80, 'healthy'],
+]
 
-// const heroes = [
-//     {name: 'мечник', health: 10},
-//     {name: 'маг', health: 100},
-//     {name: 'лучник', health: 80},
-// ]
+const handler = test.each(heroes);
 
-// const handler = test.each(heroes);
-
-// handler(prefix, ()=>{
-//     const result = checkHealth();
-// })
+handler('testing checkHealth function with %s name and %i health, has status %s', (name, health, status) => {
+    const result = checkHealth(health);
+    expect(result).toBe(status)
+})
