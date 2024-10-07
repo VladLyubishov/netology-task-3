@@ -3,7 +3,7 @@ import checkHealth from '../src/health'
 const heroes = [
     ['мечник', 10, 'critical'],
     ['маг', 100, 'healthy'],
-    ['лучник', 80, 'healthy'],
+    ['лучник', 45, 'wounded'],
 ]
 
 const handler = test.each(heroes);
